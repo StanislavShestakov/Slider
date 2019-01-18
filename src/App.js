@@ -2,33 +2,55 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import styled from 'styled-components';
+
+import Header from './components/Header'
+import Menu from './components/Menu'
+import Main from './components/Main'
+
+const url= process.env.PUBLIC_URL + '/img/bg.jpg';
+
+const HeaderWrapper = styled.header`
+with:100%;
+height: 49px;
+background-color: #242424;
+opaciry: 0.8;
+`
+const MenuWrapper = styled.div`
+height: 89px;
+padding-top: 20px;
+`
+
+const MainWrapper = styled.main`
+height: 600px;
+padding-top: 130px;
+background: url(${url}) no-repeat;
+background-size: cover;
+`
 
 class App extends Component {
   render() {
     return (
-        <div>
-    <SayFullName name="Stas" surname="Shestakov"/>
-    <SayFullName name="Dmitriy" surname="Gjrohovcev"/>
+        <div className="App">
+        <HeaderWrapper>
+        <Grid>
+        <Header />
+        </Grid>
+        </HeaderWrapper>
+        <MenuWrapper>
+        <Grid>
+        <Menu />
+        </Grid>
+        </MenuWrapper>
+        <MainWrapper>
+          <Grid>
+          <Main />
+          </Grid>
+        </MainWrapper>
+        <Main />
     </div>
     );
   }
-}
-function Hello(){
-  let phrase = "Worlad"
-  return (
-    <h1>Hello  World! {4+5}</h1>
-    )
-}
-function SayFullName(props){
-  return (
-  <div>
-  <h1> My name {props.name}, surname - {props.surname}</h1>
-  <a href={props.link}> linck my profile</a>
-  </div>
-  )
 }
 
 
