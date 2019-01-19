@@ -47,7 +47,6 @@ class App extends Component {
           <Main />
           </Grid>
         </MainWrapper>
-        <Main />
     </div>
     );
   }
